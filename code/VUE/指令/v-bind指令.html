@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button" value="修改信息" @click="set" />
+			<input type="text" v-model="message" @keyup.enter="get" />
+			<h2>{{ message }}</h2>
+		</div>
+		
+		<script src="vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					message: "Hello"
+				},
+				methods: {
+					get: function() {
+						alert(this.message);
+					},
+					
+					set: function() {
+						this.message = "Nice day";
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
