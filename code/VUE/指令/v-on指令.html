@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<!-- 单击事件 -->
+			<input type="button" value="v-on指令" v-on:click="doSomething" />
+			<input type="button" value="v-on简写" @click="doSomething" />
+			
+			<!-- 双击事件 -->
+			<input type="button" value="双击" @dblclick="doSomething" />
+			
+			<!-- 动态修改属性 -->
+			<h2 @click="changeData">{{ food }}</h2>
+		</div>
+		
+		<script src="vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					food: "烤鸡翅"
+				},
+				methods: {
+					doSomething: function() {
+						alert("doSomething...");
+					},
+					
+					changeData: function() {
+						this.food += "真好吃";
+					}
+				},
+			});
+		</script>
+	</body>
+</html>

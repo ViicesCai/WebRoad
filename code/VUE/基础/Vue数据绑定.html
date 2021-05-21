@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			渲染简单数据：{{ message }} <br>
+			渲染复杂数据：{{ student.name }} <br>
+			渲染数组：{{ schools[1] }} <br>
+		</div>
+		
+		<script src="vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					message: "学生信息",
+					student: {
+						name: "CAI",
+						age: "21",
+						sex: "男"
+					},
+					schools:["师大附中", "至诚学院"]
+				}
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<cpn :cstudents="students"></cpn>
+		</div>
+		
+		<template id="cpn">
+			<div>
+				<p>{{ cmessage }}</p>
+				<ul>
+					<li v-for="item in cstudents">{{ item }}</li>
+				</ul>
+			</div>
+			
+		</template>
+		
+		<script src="../vue.js"></script>
+		<script>
+			// 子组件
+			// 通过 props
+			const cpn = {
+				template: '#cpn',
+				// 通过数组传值
+				// props: ['cmessage', 'cstudents']
+				props: {
+					// 类型限制
+					// cmessage: String,
+					// cstudents: Array
+					
+					// 提供默认值，且是否必传
+					cmessage: {
+						type: String,
+						default: "Hello",
+						required: false
+					},
+					
+					// 类型是数组或对象时，默认值必须为函数
+					cstudents: {
+						type: Array,
+						default() {
+							return ['Tom']
+						}
+					}
+				}
+			}
+			
+			// 父组件
+			const app = new Vue({
+				el: "#app",
+				data: {
+					message: "Hi!",
+					students: ['Jack', 'Cai', 'Kate']
+				},
+				components: {
+					cpn
+				}
+			});
+		</script>
+	</body>
+</html>
